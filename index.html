@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Quiz</title>
+    <link rel="stylesheet" href="quiz.css">
+    <style>
+        body {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif, sans-serif;
+            background-color: #974716;
+            margin: 0;
+            padding: 0;
+        }
+        .quiz-container {
+            width: 80%;
+            margin: 50px auto;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .question {
+            margin: 20px 0;
+        }
+
+        .answers {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .answers li {
+            margin: 10px 0;
+        }
+
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #a74828;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            background-color: #348821;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="quiz-container">
+        <h1>Online Quiz</h1>
+        <form id="quizForm">
+            <!-- Question 1 -->
+            <div class="question">
+                <p>1.What is robocon ?</p>
+                <ul class="answers">
+                    <li><input type="radio" name="q1" value="good club"> good club</li>
+                    <li><input type="radio" name="q1" value="better club"> better club</li>
+                    <li><input type="radio" name="q1" value="best club"> best club</li>
+                </ul>
+            </div>
+            <div class="question">
+                <p>2. What is 5*9?</p>
+                <ul class="answers">
+                    <li><input type="radio" name="q2" value="56"> 56</li>
+                    <li><input type="radio" name="q2" value="47"> 47</li>
+                    <li><input type="radio" name="q2" value="45"> 45</li>
+                </ul>
+            </div>
+            <div class="question">
+                <p>3. Which planet is known as the Red Planet?</p>
+                <ul class="answers">
+                    <li><input type="radio" name="q3" value="Earth"> Earth</li>
+                    <li><input type="radio" name="q3" value="Mars"> Mars</li>
+                    <li><input type="radio" name="q3" value="Jupiter"> Jupiter</li>
+                </ul>
+            </div>
+            <div class="question">
+                <p>4. Who wrote 'To Kill a Mockingbird'?</p>
+                <ul class="answers">
+                    <li><input type="radio" name="q4" value="Harper Lee"> Harper Lee</li>
+                    <li><input type="radio" name="q4" value="Mark Twain"> Mark Twain</li>
+                    <li><input type="radio" name="q4" value="Jane Austen"> Jane Austen</li>
+                </ul>
+            </div>
+            <div class="question">
+                <p>5. What is the largest ocean on Earth?</p>
+                <ul class="answers">
+ <li><input type="radio" name="q5" value="Atlantic Ocean"> Atlantic Ocean</li>
+<li><input type="radio" name="q5" value="Pacific Ocean"> Pacific Ocean</li>
+ <li><input type="radio" name="q5" value="Indian Ocean"> Indian Ocean</li>
+  </ul>
+            </div>
+            <div class="question">
+                <p>6. Which element has the chemical symbol O?</p>
+                <ul class="answers">
+                    <li><input type="radio" name="q6" value="Oxygen"> Oxygen</li>
+                    <li><input type="radio" name="q6" value="Gold"> Gold</li>
+                    <li><input type="radio" name="q6" value="Osmium"> Osmium</li>
+                </ul>
+            </div>
+            <div class="question">
+                <p>7. What is the square root of 64?</p>
+                <ul class="answers">
+                    <li><input type="radio" name="q7" value="6"> 6</li>
+                    <li><input type="radio" name="q7" value="8"> 8</li>
+                    <li><input type="radio" name="q7" value="10"> 10</li>
+                </ul>
+            </div>
+            <div class="question">
+                <p>8. Who painted the Mona Lisa?</p>
+                <ul class="answers">
+                    <li><input type="radio" name="q8" value="Leonardo da Vinci"> Leonardo da Vinci</li>
+                    <li><input type="radio" name="q8" value="Vincent van Gogh"> Vincent van Gogh</li>
+                    <li><input type="radio" name="q8" value="Pablo Picasso"> Pablo Picasso</li>
+                </ul>
+            </div>
+            <div class="question">
+                <p>9. What is the capital of Japan?</p>
+                <ul class="answers">
+                    <li><input type="radio" name="q9" value="Beijing"> Beijing</li>
+                    <li><input type="radio" name="q9" value="Tokyo"> Tokyo</li>
+                    <li><input type="radio" name="q9" value="Seoul"> Seoul</li>
+                </ul>
+            </div>
+            <div class="question">
+                <p>10. Who discovered penicillin?</p>
+                <ul class="answers">
+                    <li><input type="radio" name="q10" value="Marie Curie"> Marie Curie</li>
+                    <li><input type="radio" name="q10" value="Alexander Fleming"> Alexander Fleming</li>
+                    <li><input type="radio" name="q10" value="Isaac Newton"> Isaac Newton</li>
+                </ul>
+            </div>
+            <input type="button" value="Submit" class="submit-btn" onclick="submitQuiz()">
+        </form>
+        <div id="result" style="display:none; margin-top: 20px;">
+            <h2>Your Score: <span id="score"></span>/10</h2>
+        </div>
+    </div>
+    <script>
+        function submitQuiz() {
+            const quizForm = document.forms['quizForm'];
+            let score = 0;
+            const correctAnswers = {
+                q1: 'best club',
+                q2: '45',
+                q3: 'Mars',
+                q4: 'Harper Lee',
+                q5: 'Pacific Ocean',
+                q6: 'Oxygen',
+                q7: '8',
+                q8: 'Leonardo da Vinci',
+                q9: 'Tokyo',
+                q10: 'Alexander Fleming'
+            };
+            for (let question in correctAnswers) {
+                const userAnswer = quizForm[question].value;
+                if (userAnswer === correctAnswers[question]) {
+                    score++;
+                }
+            }
+            document.getElementById('score').innerText = score;
+            document.getElementById('result').style.display = 'block';
+        }
+        window.onload = function () {
+            startTimer();
+        };
+    </script>
+</body>
+
+</html>
